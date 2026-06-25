@@ -1,0 +1,71 @@
+* Project H:\4A\PROJET\PADS_Filtre_S49E\circuit - Copie.cir
+* Mentor Graphics Wirelist Created with Version 1.0.0
+* Inifile   : 
+* Options   : 
+
+R1       GND_VR $$$27816 
+R2       $$$27816 $$$27923 
+X\U1     $$$27923 $$$27816 SS49E_AC_0 -12V_VR 12V_VR INTER_0 INTER_0 $$$28487
+C1       $$$27923 $$$28487 
+C2       GND_VR $$$27923 
+X\U2     $$$29093 $$$29082 INTER_0 -12V_VR 12V_VR INTER_1 INTER_1 $$$29435
+R3       GND_VR $$$29082 
+R4       $$$29082 $$$29093 
+C3       $$$29093 $$$29296 
+R5       GND_VR $$$29296 
+R6       $$$29296 $$$29435 
+C4       GND_VR $$$29435 
+X\U3     $$$30760 GND_VR $$$15599 -12V_VR 12V_VR
+R7       INTER_1 $$$15599 
+C5       $$$15599 GND_VR 
+R8       $$$15599 $$$30760 
+D1       $$$20562 $$$30760  d1n914
+R9       FPGA_0 -12V_VR 
+X\U4     $$$31678 $$$31295 $$$31332 -12V_VR 12V_VR INTER_2 $$$31995 $$$31678
+R10      INTER_0 $$$31277 
+C6       $$$31277 $$$31295 
+R11      GND_VR $$$31332 
+R12      $$$31678 $$$31295 
+C7       $$$31678 $$$31295 
+R13      INTER_2 $$$31995 
+R14      $$$31995 GND_VR 
+X\U5     $$$32766 $$$32766 $$$32757 -12V_VR 12V_VR INTER_3 GND_VR $$$1064
+C8       $$$32747 INTER_2 
+R15      $$$32747 GND_VR 
+R16      $$$32747 $$$32757 
+C9       GND_VR $$$32757 
+R17      $$$32766 $$$1064 
+C10      GND_VR $$$1064 
+R18      INTER_3 $$$1064 
+D2       $$$20678 INTER_3  d1n914
+R19      FPGA_D0 -12V_VR 
+* Skipping component J1-1 probably because no Sim.Analog.Prefix attribute was found.
+* 
+* Skipping component J2-1 probably because no Sim.Analog.Prefix attribute was found.
+* 
+R22      GND_VR VCC_SS49E 
+R23      GND_VR GND_SS49E 
+R24      12V_VR VCC_SS49E 
+R25      -12V_VR GND_SS49E 
+R26      $$$20562 FPGA_0 
+R27      $$$20678 FPGA_D0 
+* Skipping component J3-1 probably because no Sim.Analog.Prefix attribute was found.
+* 
+* Skipping component J4-1 probably because no Sim.Analog.Prefix attribute was found.
+* 
+* Skipping component J5-1 probably because no Sim.Analog.Prefix attribute was found.
+* 
+* Skipping component J6-1 probably because no Sim.Analog.Prefix attribute was found.
+* 
+* Skipping component J7-1 probably because no Sim.Analog.Prefix attribute was found.
+* 
+X\U7     GND_VR GND_VR $$$18721 12V_VR -12V_VR
+R28      -12V_VR $$$18721 
+R29      12V_VR $$$18721 
+
+* d1n914 model created using Parts release 3.08a on 05/12/89 at 11:25
+*
+.MODEL D1N914 D(IS=2.832P RS=4.888 N=1 XTI=3 EG=1.11 BV=75 IBV=5M CJO=2.721P
++  VJ=.75 M=.3333 FC=.5 TT=5.771N)
+
+.END
