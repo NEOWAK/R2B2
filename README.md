@@ -18,17 +18,9 @@ R2B2 — Robot autonome ramasseur de balles de tennis
 
 ## 📸 Screenshots
 
-![Capture d’écran du 2026 05 18 06 51 23](https://raw.githubusercontent.com/NEOWAK/R2B2/main/software/dashbord/Capture d’écran du 2026-05-18 06-51-23.png)
+![robot 3D](https://raw.githubusercontent.com/NEOWAK/R2B2/main/structure/robot/robot_v1.0_img0.jpg)
 
-![adc mesure 5V](https://raw.githubusercontent.com/NEOWAK/R2B2/main/software/monitor/img/adc_mesure_5V.png)
-
-![adc mesure paliers](https://raw.githubusercontent.com/NEOWAK/R2B2/main/software/monitor/img/adc_mesure_paliers.png)
-
-![Capture d’écran du 2026 05 18 06 07 12](https://raw.githubusercontent.com/NEOWAK/R2B2/main/structure/pince/Capture d’écran du 2026-05-18 06-07-12.png)
-
-![Capture d’écran du 2026 05 18 06 07 25](https://raw.githubusercontent.com/NEOWAK/R2B2/main/structure/pince/Capture d’écran du 2026-05-18 06-07-25.png)
-
-![Capture d’écran du 2026 05 18 06 07 59](https://raw.githubusercontent.com/NEOWAK/R2B2/main/structure/pince/Capture d’écran du 2026-05-18 06-07-59.png)
+![robot real](https://raw.githubusercontent.com/NEOWAK/R2B2/main/structure/robot/robot_3.jpg)
 
 ## ⚡ Quick Start
 
@@ -132,9 +124,10 @@ git clone https://github.com/NEOWAK/R2B2.git
     │   ├── pince3D_01_square.jpg
     │   └── pinceo.jpg
     └── robot
-        ├── robot_0.heic
-        ├── robot_1.heic
-        ├── robot_2.heic
+        ├── robot_0.jpeg
+        ├── robot_1.jpeg
+        ├── robot_2.jpeg
+        ├── robot_3.jpeg
         └── robot_v1.0_img0.jpg
 ```
 
@@ -164,6 +157,3 @@ Please follow the existing code style and include tests for new behavior where a
 ## 📜 License
 
 This project is licensed under the **MIT** License.
-
----
-*This README was generated with ❤️ by [ReadmeBuddy](https://readmebuddy.com)*
