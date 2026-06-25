@@ -1,0 +1,87 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+-- Pilote un moteur via un driver BTS7960 (43A)
+-- Fréquence PWM : 50MHz / 10 / 256 = 19.53 kHz
+entity motor_controller is
+    port (
+        i_clk50     : in  std_logic;                    -- Horloge système 50 MHz
+        i_reset_n   : in  std_logic;                    -- Reset actif bas
+        i_speed     : in  std_logic_vector(7 downto 0); -- Vitesse 0 à 255
+        i_direction : in  std_logic;                    -- '0' = Avant, '1' = Arrière
+        i_enable    : in  std_logic;                    -- '1' = Activé, '0' = Arrêt sécurité
+
+        -- Sorties vers le module BTS7960
+        o_r_pwm     : out std_logic;                    -- PWM côté droit du pont
+        o_l_pwm     : out std_logic;                    -- PWM côté gauche du pont
+        o_r_en      : out std_logic;                    -- Enable côté droit
+        o_l_en      : out std_logic                     -- Enable côté gauche
+    );
+end entity;
+
+architecture rtl of motor_controller is
+
+    -- Prescaler : divise l'horloge par 10
+    signal s_prescaler  : integer range 0 to 9  := 0;
+    signal s_pwm_tick   : std_logic             := '0';
+
+    -- Compteur PWM 8 bits (0 à 255)
+    signal s_pwm_counter : unsigned(7 downto 0) := (others => '0');
+
+begin
+
+    process(i_clk50, i_reset_n)
+    begin
+        if i_reset_n = '0' then
+            s_prescaler   <= 0;
+            s_pwm_tick    <= '0';
+            s_pwm_counter <= (others => '0');
+            o_r_pwm       <= '0';
+            o_l_pwm       <= '0';
+            o_r_en        <= '0';
+            o_l_en        <= '0';
+
+        elsif rising_edge(i_clk50) then
+
+            -- PRESCALER : génère une impulsion tous les 10 cycles
+            if s_prescaler = 9 then
+                s_prescaler <= 0;
+                s_pwm_tick  <= '1';
+            else
+                s_prescaler <= s_prescaler + 1;
+                s_pwm_tick  <= '0';
+            end if;
+
+            -- COMPTEUR PWM : incrémente sur chaque tick prescaler
+            if s_pwm_tick = '1' then
+                s_pwm_counter <= s_pwm_counter + 1;
+            end if;
+
+            -- GÉNÉRATION DES SORTIES (registrées → pas de glitches)
+            if i_enable = '1' then
+                o_r_en <= '1';
+                o_l_en <= '1';
+
+                if i_direction = '0' then
+                    -- Sens avant : PWM sur R_PWM
+                    o_r_pwm <= '1' when s_pwm_counter <= unsigned(i_speed) else '0';
+                    o_l_pwm <= '0';
+                else
+                    -- Sens arrière : PWM sur L_PWM
+                    o_r_pwm <= '0';
+                    o_l_pwm <= '1' when s_pwm_counter <= unsigned(i_speed) else '0';
+                end if;
+
+            else
+                -- Arrêt sécurité : tout à 0
+                o_r_en  <= '0';
+                o_l_en  <= '0';
+                o_r_pwm <= '0';
+                o_l_pwm <= '0';
+            end if;
+
+        end if;
+    end process;
+
+end architecture;
