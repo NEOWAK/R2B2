@@ -20,7 +20,7 @@ R2B2 — Robot autonome ramasseur de balles de tennis
 
 ![robot 3D](https://raw.githubusercontent.com/NEOWAK/R2B2/main/structure/robot/robot_v1.0_img0.jpg)
 
-![robot real](https://raw.githubusercontent.com/NEOWAK/R2B2/main/structure/robot/robot_3.jpg)
+![robot real](https://raw.githubusercontent.com/NEOWAK/R2B2/main/structure/robot/robot_3.jpeg)
 
 ## ⚡ Quick Start
 
