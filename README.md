@@ -1,2 +1,6 @@
-# R2B2
-R2B2 — Robot autonome ramasseur de balles de tennis
+<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
+
+# en francais
+
+Voici la version française :
+
